@@ -1,0 +1,179 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+h1 {
+    position: absolute;
+    top: 20%;
+    color: #ff007f;
+    font-size: 2rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+}
+
+.heart {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    background-color: #ff007f;
+    transform: rotate(-45deg);
+    animation: float 4s ease-in-out infinite;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px rgba(255, 0, 127, 0.7);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.heart:hover {
+    transform: rotate(-45deg) scale(1.1);
+    box-shadow: 0px 0px 30px rgba(255, 0, 127, 1);
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: #ff007f;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -75px;
+    left: 0;
+}
+
+.heart::after {
+    left: 75px;
+    top: 0;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(-45deg); }
+    50% { transform: translateY(-15px) rotate(-45deg); }
+    100% { transform: translateY(0) rotate(-45deg); }
+}
+
+.message {
+    display: none;
+    font-size: 1.8rem;
+    color: #ff007f;
+    margin-top: 20px;
+}
+
+.options {
+    display: none;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #ff6f91;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+.btn:hover {
+    background-color: #ff3b5f;
+}
+
+.effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    animation: fadeIn 1s forwards;
+}
+
+.fireworks {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart-firework {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ff007f;
+    border-radius: 50%;
+    animation: burst 1.2s ease-out infinite;
+}
+
+.marry-message {
+    position: absolute;
+    color: #ff007f;
+    font-size: 3rem;
+    opacity: 0;
+    animation: fadeInMarry 3s forwards;
+}
+
+@keyframes burst {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(10); opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInMarry {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Emojis de casal andando */
+.couple {
+    position: absolute;
+    font-size: 2rem;
+    animation: walk 10s linear infinite;
+}
+
+@keyframes walk {
+    0% { left: -10%; }
+    100% { left: 110%; }
+}
+
+/* Animação do botão Não */
+.btn-no {
+    transition: all 0.3s ease;
+}
+
+.btn-no:hover {
+    position: absolute;
+    top: calc(50vh + (Math.random() * 200 - 100)px);
+    left: calc(50vw + (Math.random() * 200 - 100)px);
+}
